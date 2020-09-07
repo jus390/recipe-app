@@ -1,4 +1,22 @@
-<p>recipe-search works!</p>
-<button (click)="testApi()">
-  Test API
-</button>
+<div class="recipe-search">
+  <div class="recipe-logo">
+    <h1>Recipe</h1>
+  </div>
+  <div class="search-autocomplete">
+    <form class="form">
+      <input type="text" placeholder="What are we making today?" [formControl]="control" [matAutocomplete]="auto"
+        (input)="searchRecipes($event.target.value)">
+      <mat-autocomplete #auto="matAutocomplete" class="custom-scrollbar">
+        <mat-option class="autocomplete-result" *ngFor="let option of options" [value]="option.title"
+          [routerLink]="['/recipe', option.id]">
+          <img class="option-img" aria-hidden [src]="option.image" height="48">
+          <span>{{option.title}}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+  </div>
+  <div class="random-recipes">
+    <app-recipe-card [title]="recipe.title" [dishType]="recipe.dishTypes[0]" [image]="recipe.image"
+      [summary]="recipe.summary" [id]="recipe.id" *ngFor="let recipe of randomRecipes"></app-recipe-card>
+  </div>
+</div>

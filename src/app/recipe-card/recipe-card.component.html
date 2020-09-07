@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{title}}</mat-card-title>
+    <mat-card-subtitle *ngIf="dishType">{{dishType}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="image">
+  <mat-card-content>
+    <p class="summary" [innerHTML]="summary">
+    </p>
+    <a [routerLink]="['/recipe', id]">Show more..</a>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button *ngIf="inFavorites" (click)="toggleFavorite()">
+      Unfavorite
+    </button>
+    <button mat-button *ngIf="!inFavorites" (click)="toggleFavorite()">
+      Favorite
+    </button>
+  </mat-card-actions>
+</mat-card>
