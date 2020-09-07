@@ -1,0 +1,22 @@
+.recipe-favorites {
+  display: grid;
+  justify-content: center;
+  background: #fafafa;
+  padding-top: 3em;
+  padding-left: 10%;
+  padding-right: 10%;
+
+  .recipe-logo {
+    justify-self: center;
+  }
+
+  .favorite-recipes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+    margin-bottom: 50px;
+
+
+  }
+}
