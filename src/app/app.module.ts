@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +24,7 @@ import { ApiKeyInterceptor } from './api-key.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+import { RecipeCardSkeletonComponent } from './recipe-card-skeleton/recipe-card-skeleton.component';
 
 
 @NgModule({
@@ -30,13 +34,17 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
     RecipeComponent,
     RecipeFavouritesComponent,
     NavigationMenuComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    RecipeCardSkeletonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSkeletonLoaderModule,
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
@@ -44,7 +52,8 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
