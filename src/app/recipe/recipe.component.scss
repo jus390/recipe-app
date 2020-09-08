@@ -1,0 +1,79 @@
+.recipe-loading {
+  justify-content: center;
+}
+
+.recipe {
+  justify-content: center;
+
+  h1 {
+    @media only screen and (max-width: 1024px) {
+      text-align: center;
+    }
+  }
+
+  .time-servings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: stretch;
+    margin-bottom: 10px;
+
+    .time {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    .servings {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+  }
+
+  .recipe-image-mobile {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .recipe-instructions {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    @media only screen and (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    }
+
+    .ingredients {
+
+      border-right: 1px solid #ccc;
+
+      .ingredient {
+        padding: 10px;
+      }
+
+      @media only screen and (max-width: 1024px) {
+        border-right: none;
+
+      }
+    }
+
+    .instructions {
+      padding-left: 20px;
+      text-align: justify;
+
+      @media only screen and (max-width: 1024px) {
+        padding-left: 0px;
+
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+}
