@@ -13,7 +13,6 @@ export class RecipeCardComponent implements OnInit {
   @Input() image: string;
   @Input() summary: string;
   @Input() id: string;
-  @Input() readyInMinutes: number;
   @Output() favoritesChanged = new EventEmitter();
   inFavorites: boolean;
 

@@ -77,9 +77,14 @@ body {
   column-gap: 30px;
   row-gap: 30px;
 
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   @media only screen and (max-width: 769px) {
     grid-template-columns: 1fr;
   }
+
 }
 
 

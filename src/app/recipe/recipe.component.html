@@ -1,5 +1,14 @@
 <div class="recipe container" *ngIf="recipe">
-  <h1>{{recipe.title}}</h1>
+  <div class="recipe-header">
+    <h1>{{recipe.title}} <a (click)="toggleFavorite()">
+        <mat-icon *ngIf="inFavorites" matTooltip="Remove Recipe from favorites" matTooltipPosition="after">star
+        </mat-icon>
+        <mat-icon *ngIf="!inFavorites" matTooltip="Add Recipe to favorites" matTooltipPosition="after">star_border
+        </mat-icon>
+      </a></h1>
+  </div>
+
+
   <div class="recipe-image-mobile">
     <img [src]="recipe.image" class="recipe" />
   </div>
@@ -8,7 +17,7 @@
     <div class="time">
       <div class="upper"> Cooking time:</div>
       <div class="lower">
-        <h2>{{recipe.readyInMinutes}}min</h2>
+        <h2>{{recipe.readyInMinutes}} min</h2>
       </div>
     </div>
     <div class="servings">
@@ -44,7 +53,7 @@
       <div class="similar-recipe" *ngFor="let similarRecipe of similarRecipes">
         <mat-card>
           <mat-card-header>
-            <mat-card-title><a [routerLink]="['/recipe', id]">{{similarRecipe.title}}</a></mat-card-title>
+            <mat-card-title><a [routerLink]="['/recipe', similarRecipe.id]">{{similarRecipe.title}}</a></mat-card-title>
             <mat-card-subtitle>Cooking time: {{similarRecipe.readyInMinutes}}min</mat-card-subtitle>
           </mat-card-header>
         </mat-card>

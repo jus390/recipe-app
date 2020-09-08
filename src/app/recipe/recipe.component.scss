@@ -5,9 +5,16 @@
 .recipe {
   justify-content: center;
 
-  h1 {
-    @media only screen and (max-width: 1024px) {
-      text-align: center;
+  .recipe-header {
+
+    a {
+      cursor: pointer;
+    }
+
+    h1 {
+      @media only screen and (max-width: 1025px) {
+        text-align: center;
+      }
     }
   }
 
@@ -36,7 +43,13 @@
     justify-content: center;
     margin-bottom: 20px;
 
-    @media only screen and (min-width: 1024px) {
+    img {
+      width: 100%;
+      max-width: 556px;
+    }
+
+
+    @media only screen and (min-width: 1025px) {
       display: none;
     }
   }
@@ -47,6 +60,8 @@
 
     @media only screen and (max-width: 1024px) {
       grid-template-columns: 1fr;
+
+
     }
 
     .ingredients {

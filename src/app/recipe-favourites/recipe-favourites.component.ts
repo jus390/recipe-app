@@ -7,14 +7,17 @@ import { RecipeService } from "../recipe.service";
 })
 export class RecipeFavouritesComponent implements OnInit {
   favoriteRecipes: object[];
+  loading;
 
   removeRecipe(index) {
     this.favoriteRecipes.splice(index, 1);
   }
 
   fetchFavorites() {
+    this.loading = true;
     this.recipeService.getFavorites().subscribe((data: object[]) => {
       this.favoriteRecipes = data;
+      this.loading = false;
     });
   }
 

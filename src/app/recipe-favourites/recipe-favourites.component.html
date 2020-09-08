@@ -8,5 +8,11 @@
       [summary]="recipe.summary" [id]="recipe.id" *ngFor="let recipe of favoriteRecipes;index as idx "
       (favoritesChanged)="removeRecipe(idx)">
     </app-recipe-card>
+    <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+    <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+    <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+    <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+    <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+    <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
   </div>
 </div>
