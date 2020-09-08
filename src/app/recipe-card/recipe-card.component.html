@@ -1,6 +1,6 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>{{title}}</mat-card-title>
+    <mat-card-title><a [routerLink]="['/recipe', id]">{{title}}</a></mat-card-title>
     <mat-card-subtitle *ngIf="dishType">{{dishType}}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image [src]="image">
