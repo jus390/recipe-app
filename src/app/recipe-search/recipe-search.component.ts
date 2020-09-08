@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 interface SearchResult {
-  results: Array<object>;
+  results: object[];
 }
 @Component({
   selector: 'app-recipe-search',
@@ -24,13 +24,11 @@ export class RecipeSearchComponent implements OnInit {
       this.randomRecipes = data.recipes;
     });
   }
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.title.toLowerCase().includes(filterValue));
+  checkFavourites(id) {
+    let favorites = this.recipeService.getFavoritesIds();
+    return favorites.indexOf(id) > -1;
   }
-
-
   searchRecipes(search) {
     clearTimeout(this.writeTimer);
     this.writeTimer = setTimeout(() => {

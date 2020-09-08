@@ -9,7 +9,7 @@ import { JsonPipe } from '@angular/common';
 })
 export class RecipeService {
 
-  searchRecipe(search): Observable<object> {
+  searchRecipe(search) {
     return this.http.get(`https://api.spoonacular.com/recipes/complexSearch`, { params: { query: search } });
   }
 
@@ -34,16 +34,20 @@ export class RecipeService {
   }
 
   getFavorites() {
-    let favorites: Array<number> = JSON.parse(localStorage.getItem("favorites"));
+    let favorites: Array<string> = JSON.parse(localStorage.getItem("favorites"));
     return this.http.get(`https://api.spoonacular.com/recipes/informationBulk`, {
       params: {
-        'ids': favorites.reduce((acc, cur) => { return "" + acc + "," + cur }),
+        'ids': "" + favorites.reduce((acc, cur) => { return "" + acc + "," + cur })
       }
     });
   }
 
-  toggleFavorite(id: number) {
-    let favorites: Array<number> = JSON.parse(localStorage.getItem("favorites"));
+  getFavoritesIds(): string[] {
+    return JSON.parse(localStorage.getItem("favorites"));
+  }
+
+  toggleFavorite(id: string) {
+    let favorites: Array<string> = JSON.parse(localStorage.getItem("favorites"));
     if (favorites == null) {
       favorites = [];
     }

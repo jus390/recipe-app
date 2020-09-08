@@ -9,7 +9,7 @@
       <mat-autocomplete #auto="matAutocomplete" class="custom-scrollbar">
         <mat-option class="autocomplete-result" *ngFor="let option of options" [value]="option.title"
           [routerLink]="['/recipe', option.id]">
-          <img class="option-img" aria-hidden [src]="option.image" height="48">
+          <mat-icon *ngIf="checkFavourites(option.id)">star</mat-icon>
           <span>{{option.title}}</span>
         </mat-option>
       </mat-autocomplete>
