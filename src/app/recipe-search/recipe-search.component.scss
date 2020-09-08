@@ -1,10 +1,5 @@
 .recipe-search {
-  display: grid;
   justify-content: center;
-  background: #fafafa;
-  padding-top: 3em;
-  padding-left: 10%;
-  padding-right: 10%;
 
   .recipe-logo {
     justify-self: center;
@@ -12,13 +7,12 @@
 
   .search-autocomplete {
     justify-self: center;
-    width: 300px;
+    width: 500px;
     margin-bottom: 50px;
 
     .form {
       min-width: 150px;
       max-width: 500px;
-
 
       input {
         padding: 10px;
@@ -56,15 +50,12 @@
 
   }
 
-  .random-recipes {
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 30px;
-    row-gap: 30px;
-    margin-bottom: 50px;
-
+  .random-recipes-wrapper {
+    h2 {
+      text-align: center;
+    }
 
   }
+
 
 }

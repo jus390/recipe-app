@@ -1,9 +1,9 @@
-<div class="recipe-favorites">
+<div class="recipe-favorites container">
   <div class="recipe-logo">
     <h1>Favorites</h1>
   </div>
 
-  <div class="favorite-recipes">
+  <div class="favorite-recipes card-grid">
     <app-recipe-card [title]="recipe.title" [dishType]="recipe.dishTypes[0]" [image]="recipe.image"
       [summary]="recipe.summary" [id]="recipe.id" *ngFor="let recipe of favoriteRecipes;index as idx "
       (favoritesChanged)="removeRecipe(idx)">

@@ -13,7 +13,7 @@ export class RecipeFavouritesComponent implements OnInit {
   }
 
   fetchFavorites() {
-    this.recipeService.getFavorites().subscribe((data) => {
+    this.recipeService.getFavorites().subscribe((data: object[]) => {
       this.favoriteRecipes = data;
     });
   }
