@@ -7,7 +7,6 @@ import { RecipeFavouritesComponent } from './recipe-favourites/recipe-favourites
 
 const routes: Routes = [{ path: '', component: RecipeSearchComponent },
 { path: 'recipe/:id', component: RecipeComponent },
-{ path: 'recipe', component: RecipeComponent },
 { path: 'favorites', component: RecipeFavouritesComponent },
 ];
 
