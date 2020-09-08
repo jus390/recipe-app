@@ -17,7 +17,15 @@ export class RecipeService {
     return this.http.get(`https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=false`);
   }
 
-  getRandomRecipes(number: number): Observable<object> {
+  getSimilarRecipes(recipeId: number) {
+    return this.http.get(`https://api.spoonacular.com/recipes/${recipeId}/similar`, {
+      params: {
+        'number': "5",
+      }
+    });
+  }
+
+  getRandomRecipes(number) {
     return this.http.get(`https://api.spoonacular.com/recipes/random`, {
       params: {
         'number': number,
