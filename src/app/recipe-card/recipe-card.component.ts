@@ -12,7 +12,8 @@ export class RecipeCardComponent implements OnInit {
   @Input() dishType: string;
   @Input() image: string;
   @Input() summary: string;
-  @Input() id: number;
+  @Input() id: string;
+  @Input() readyInMinutes: number;
   @Output() favoritesChanged = new EventEmitter();
   inFavorites: boolean;
 
@@ -40,7 +41,7 @@ export class RecipeCardComponent implements OnInit {
   constructor(private recipeService: RecipeService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    let favorites = JSON.parse(localStorage.getItem("favorites"));
+    let favorites = this.recipeService.getFavoritesIds();
     this.inFavorites = favorites.indexOf(this.id) > -1;
   }
 
