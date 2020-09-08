@@ -6,6 +6,11 @@ import { FormControl } from '@angular/forms';
 interface SearchResult {
   results: object[];
 }
+
+interface RandomRecipes {
+  recipes: object[]
+}
+
 @Component({
   selector: 'app-recipe-search',
   templateUrl: './recipe-search.component.html',
@@ -15,13 +20,16 @@ export class RecipeSearchComponent implements OnInit {
   control = new FormControl();
   options = [];
   randomRecipes = []
+  loading: boolean;
   writeTimer;
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.recipeService.getRandomRecipes(9).subscribe((data: object) => {
+    this.loading = true;
+    this.recipeService.getRandomRecipes(9).subscribe((data: RandomRecipes) => {
       this.randomRecipes = data.recipes;
+      this.loading = false;
     });
   }
 

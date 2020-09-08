@@ -11,12 +11,29 @@
           [routerLink]="['/recipe', option.id]">
           <mat-icon *ngIf="checkFavourites(option.id)">star</mat-icon>
           <span>{{option.title}}</span>
+
         </mat-option>
       </mat-autocomplete>
     </form>
   </div>
-  <div class="random-recipes">
-    <app-recipe-card [title]="recipe.title" [dishType]="recipe.dishTypes[0]" [image]="recipe.image"
-      [summary]="recipe.summary" [id]="recipe.id" *ngFor="let recipe of randomRecipes"></app-recipe-card>
+  <div class="random-recipes-wrapper">
+    <div class="background-panel">
+
+    </div>
+    <h2>Can't decide? Try these:</h2>
+    <div class="random-recipes card-grid">
+
+      <app-recipe-card [title]="recipe.title" [dishType]="recipe.dishTypes[0]" [image]="recipe.image"
+        [summary]="recipe.summary" [id]="recipe.id" *ngFor="let recipe of randomRecipes">
+      </app-recipe-card>
+
+      <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+      <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+      <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+      <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+      <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+      <app-recipe-card-skeleton *ngIf="loading"></app-recipe-card-skeleton>
+    </div>
   </div>
+
 </div>
