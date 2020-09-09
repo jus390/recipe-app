@@ -1,13 +1,14 @@
 <div class="navigation-menu">
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+    id="navigation-button">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/">
+    <button id="search-link" mat-menu-item routerLink="/">
       <mat-icon>search</mat-icon>
       <span>Search</span>
     </button>
-    <button mat-menu-item routerLink="/favorites">
+    <button id="favorites-link" mat-menu-item routerLink="/favorites">
       <mat-icon>star</mat-icon>
       <span>Favorites</span>
     </button>

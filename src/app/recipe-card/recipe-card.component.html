@@ -7,7 +7,7 @@
   <mat-card-content>
     <p class="summary" [innerHTML]="summary">
     </p>
-    <a [routerLink]="['/recipe', id]">Show more..</a>
+    <a [routerLink]="['/recipe', id]">See recipe</a>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button *ngIf="inFavorites" (click)="toggleFavorite()">

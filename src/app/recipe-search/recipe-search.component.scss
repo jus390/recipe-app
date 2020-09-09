@@ -1,3 +1,5 @@
+@import "../breakpoints.scss";
+
 .recipe-search {
   justify-content: center;
 
@@ -12,12 +14,12 @@
     margin-left: 30%;
     margin-right: 30%;
 
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: $tablet) {
       margin-left: 20%;
       margin-right: 20%;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: $mobile) {
       margin-left: 0%;
       margin-right: 0%;
     }

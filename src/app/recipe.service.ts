@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { JsonPipe } from '@angular/common';
+
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +34,9 @@ export class RecipeService {
 
   getFavorites() {
     let favorites: Array<string> = JSON.parse(localStorage.getItem("favorites"));
+    if (favorites == null || favorites == undefined) {
+      favorites = [];
+    }
     return this.http.get(`https://api.spoonacular.com/recipes/informationBulk`, {
       params: {
         'ids': "" + favorites.reduce((acc, cur) => { return "" + acc + "," + cur })
@@ -43,12 +45,16 @@ export class RecipeService {
   }
 
   getFavoritesIds(): string[] {
-    return JSON.parse(localStorage.getItem("favorites"));
+    let favorites: Array<string> = JSON.parse(localStorage.getItem("favorites"));
+    if (favorites == null || favorites == undefined) {
+      favorites = [];
+    }
+    return favorites;
   }
 
   toggleFavorite(id: string) {
     let favorites: Array<string> = JSON.parse(localStorage.getItem("favorites"));
-    if (favorites == null) {
+    if (favorites == null || favorites == undefined) {
       favorites = [];
     }
     let idx = favorites.indexOf(id);
